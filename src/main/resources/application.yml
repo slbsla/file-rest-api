@@ -1,0 +1,8 @@
+server:
+  port: 8010
+
+file:
+  root: ./root
+  work: ./root/work
+  sftp: ./root/sftp
+  archive: ./root/archive
