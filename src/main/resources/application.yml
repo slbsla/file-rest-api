@@ -6,3 +6,6 @@ file:
   work: ./root/work
   sftp: ./root/sftp
   archive: ./root/archive
+integration:
+  input: ./root/input
+  pattern: \\*.csv

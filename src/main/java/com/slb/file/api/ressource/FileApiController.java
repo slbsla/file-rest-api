@@ -161,4 +161,14 @@ public class FileApiController implements IFileApi {
         logger.debug("Successfully archived");
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @Override
+    public ResponseEntity<Resource> sendMail(String fullname) throws IOException {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Resource> sendSftp(String fullname) throws IOException {
+        return null;
+    }
 }

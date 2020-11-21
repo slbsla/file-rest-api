@@ -16,4 +16,9 @@ public class ApplicationProperties {
     private String sftp;
     @Value("${file.archive}")
     private String archive;
+    @Value("${integration.input}")
+    private String input;
+    @Value("${integration.pattern}")
+    private String pattern;
+
 }

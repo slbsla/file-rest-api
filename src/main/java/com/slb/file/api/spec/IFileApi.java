@@ -48,18 +48,14 @@ public interface IFileApi {
     @ApiOperation(value = "Archiver")
     @RequestMapping(path = "/archive/{fullname}", method = RequestMethod.POST)
     public ResponseEntity<Resource> archive(@RequestParam("fullname") String fullname ) throws IOException;
+
+    @ApiOperation(value = "Envoyer par mail")
+    @RequestMapping(path = "/mail/{fullname}", method = RequestMethod.POST)
+    public ResponseEntity<Resource> sendMail(@RequestParam("fullname") String fullname ) throws IOException;
+
+
+    @ApiOperation(value = "Envoyer par Sftp")
+    @RequestMapping(path = "/sftp/{fullname}", method = RequestMethod.POST)
+    public ResponseEntity<Resource> sendSftp(@RequestParam("fullname") String fullname ) throws IOException;
+
 }
-
-
-/*
-
- * display folder contents with properties
- * upload file (only text file)
- * download file by name.csv
- * search file by name an extension, display by last modified
- * archive à file (make a zip and go on archive folder)
- * Send a file in the filder to Sftp
- * Send a file in the folder ny mail
-
-
- */
