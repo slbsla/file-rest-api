@@ -2,6 +2,7 @@ package com.slb.file.api.ressource;
 
 
 import com.slb.file.api.config.ApplicationProperties;
+import com.slb.file.api.mail.EmailingService;
 import com.slb.file.api.model.FileDto;
 import com.slb.file.api.spec.IFileApi;
 import com.slb.file.api.utils.FUtils;
@@ -19,6 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
+import javax.validation.constraints.Email;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -40,6 +43,9 @@ public class FileApiController implements IFileApi {
 
     @Autowired
     ApplicationProperties applicationProperties ;
+
+    @Autowired
+    EmailingService emailingService;
 
     @Override
     public List<FileDto> displayFolderContent() throws Exception {
@@ -163,8 +169,30 @@ public class FileApiController implements IFileApi {
     }
 
     @Override
-    public ResponseEntity<Resource> sendMail(String fullname) throws IOException {
-        return null;
+    public ResponseEntity<String> sendMail(MultipartFile file, @Email String email) {
+        if (file != null && email != null) {
+            if (file.isEmpty()) {
+                return new ResponseEntity("You must select a file!", HttpStatus.OK);
+            }
+            try {
+                byte[] bytes = file.getBytes();
+                String newpath = applicationProperties.getWork()
+                        + "/UPLOADED" + RandomStringUtils.randomNumeric(4)
+                        + "_" + file.getOriginalFilename();
+                Path path = Paths.get(newpath);
+                Files.write(path, bytes);
+
+
+                File attachement = new File(newpath);
+                emailingService.sendEmailWithAttachement(email, attachement, "[Your file]", file.getOriginalFilename() );
+                return new ResponseEntity("File Send : " + file.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+
+            } catch (IOException | MessagingException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @Override

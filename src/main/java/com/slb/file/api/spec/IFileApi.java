@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import org.springframework.core.io.Resource;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.IOException;
 import java.util.List;
@@ -35,7 +36,7 @@ public interface IFileApi {
     @RequestMapping
             (
             path = "/upload",
-            method = RequestMethod.POST,
+            method = RequestMethod.PUT,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
             )
     public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file, @RequestParam("someId") Long someId ) ;
@@ -49,9 +50,15 @@ public interface IFileApi {
     @RequestMapping(path = "/archive/{fullname}", method = RequestMethod.POST)
     public ResponseEntity<Resource> archive(@RequestParam("fullname") String fullname ) throws IOException;
 
+
     @ApiOperation(value = "Envoyer par mail")
-    @RequestMapping(path = "/mail/{fullname}", method = RequestMethod.POST)
-    public ResponseEntity<Resource> sendMail(@RequestParam("fullname") String fullname ) throws IOException;
+    @RequestMapping
+            (
+                    path = "/mail/{fullname}/{email}",
+                    method = RequestMethod.PUT,
+                    consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+            )
+    public ResponseEntity<String> sendMail(@RequestPart("file") MultipartFile file, @RequestParam("email") @Email @NotBlank String email) ;
 
 
     @ApiOperation(value = "Envoyer par Sftp")

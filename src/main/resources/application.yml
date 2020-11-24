@@ -9,3 +9,12 @@ file:
 integration:
   input: ./root/input
   pattern: \\*.csv
+
+
+spring :
+      mail :
+          host : localhost
+          port : 25
+          username :
+          password :
+          protocol: smtp
