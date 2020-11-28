@@ -15,10 +15,11 @@ import javax.validation.constraints.NotBlank;
 import java.io.IOException;
 import java.util.List;
 
+
+@CrossOrigin(origins = "http://localhost:4010")
 @RestController
 @RequestMapping({"/file/v1/"})
 @Api(value = "Gestion Sys. Fichiers")
-
 public interface IFileApi {
 
 
@@ -44,11 +45,11 @@ public interface IFileApi {
 
     @ApiOperation(value = "Télécharger")
     @RequestMapping(path = "/download/{fullname}", method = RequestMethod.GET)
-    public ResponseEntity<Resource> download(@RequestParam("fullname") String fullname ) throws IOException;
+    public ResponseEntity<Resource> download(@PathVariable("fullname") String fullname ) throws IOException;
 
     @ApiOperation(value = "Archiver")
     @RequestMapping(path = "/archive/{fullname}", method = RequestMethod.POST)
-    public ResponseEntity<Resource> archive(@RequestParam("fullname") String fullname ) throws IOException;
+    public ResponseEntity<Resource> archive(@PathVariable("fullname") String fullname ) throws IOException;
 
 
     @ApiOperation(value = "Envoyer par mail")
