@@ -22,6 +22,9 @@ import java.util.List;
 @Api(value = "Gestion Sys. Fichiers")
 public interface IFileApi {
 
+    @ApiOperation(value = "Afficher contenu de dossier")
+    @GetMapping(path = {"/app-version/"})
+    String showVersion() throws Exception;
 
     @ApiOperation(value = "Afficher contenu de dossier")
     @GetMapping(path = {"/display-all-files/"})

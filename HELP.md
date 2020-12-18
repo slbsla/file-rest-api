@@ -1,10 +1,6 @@
-# Getting Started
+**
+on tomcat : http://localhost:8014/api-file/swagger-ui.html
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.11.RELEASE/maven-plugin/)
 
 * display folder contents with properties
 * upload file (only text file)
@@ -18,3 +14,16 @@ For further reference, please consider the following sections:
 http://www.masterspringboot.com/develop-applications/rest-services/manage-upload-download-of-files-using-rest-and-spring-boot
 * sftp :
 https://www.baeldung.com/java-file-sftp
+
+
+***************
+
+about tools installation : 
+https://www.youtube.com/watch?v=ydv-3Ou7qIE
+
+about jenkins installation and git/maven intégration : 
+
+https://www.youtube.com/watch?v=VJ7d9EyGbi0
+
+about auto deploying  on tomcat : 
+https://www.youtube.com/watch?v=6-VPlwkMIKA

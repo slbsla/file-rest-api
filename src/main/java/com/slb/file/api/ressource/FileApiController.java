@@ -50,6 +50,11 @@ public class FileApiController implements IFileApi {
     EmailingService emailingService;
 
     @Override
+    public String showVersion() throws Exception {
+        return "1.0.1";
+    }
+
+    @Override
     public List<FileDto> displayFolderContent() throws Exception {
         return  Files.list(Paths.get(applicationProperties.getWork()))
                      .map(Path::toFile)
