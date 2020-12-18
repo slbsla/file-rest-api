@@ -3,13 +3,12 @@ server:
 
 file:
   root: ./root
-  work: ./root/work
+  work: file.roo/work
   sftp: ./root/sftp
   archive: ./root/archive
 integration:
   input: ./root/input
   pattern: \\*.csv
-
 
 spring :
       mail :

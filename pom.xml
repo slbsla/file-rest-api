@@ -8,6 +8,7 @@
         <version>2.2.11.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <packaging>war</packaging>
     <groupId>com.slb.file.api</groupId>
     <artifactId>file-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -101,8 +102,16 @@
             </exclusions>
         </dependency>
         <!--		end dependencies-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     <build>
+        <finalName>api-file</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
