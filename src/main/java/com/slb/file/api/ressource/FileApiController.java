@@ -51,7 +51,7 @@ public class FileApiController implements IFileApi {
 
     @Override
     public String showVersion() throws Exception {
-        return "1.0.1";
+        return "1.0.2";
     }
 
     @Override
