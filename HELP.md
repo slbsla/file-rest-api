@@ -1,4 +1,12 @@
 **
+
+sonar 
+1/configure jenkins pipeline : https://medium.com/@rosaniline/setup-sonarqube-with-jenkins-declarative-pipeline-75bccdc9075f
+2/instal sonar https://docs.sonarqube.org/latest/setup/install-server/
+3/ configure sonar : https://docs.sonarqube.org/latest/setup/install-server/
+4/connect sonar http://localhost:9000/sessions/new
+
+**
 on tomcat : http://localhost:8014/api-file/swagger-ui.html
 
 
