@@ -1,6 +1,15 @@
 pipeline {
  agent any
+ tools {
+         maven 'Maven3'
+         jdk 'java 8'
+ }
  stages  {
+      stage ('Welcome message') {
+         steps {
+               sh ' echo "Hi, let s start !""
+              }
+       }
      stage ('Clear Project') {
         steps {
               sh 'mvn clean'
