@@ -20,6 +20,20 @@ pipeline {
               bat 'mvn test'
            }
       }
+      stage('Sonarqube') {
+          environment {
+              scannerHome = tool 'SonarQubeScanner'
+          }
+          steps {
+              withSonarQubeEnv('sonarqube') {
+                  /*sh "${scannerHome}/bin/sonar-scanner"*/
+                  bat 'D:/Tools/sonarqube-7.6/bin/windows-x86-64/StartSonar
+              }
+              timeout(time: 10, unit: 'MINUTES') {
+                  waitForQualityGate abortPipeline: true
+              }
+          }
+      }
 	  stage ('Generating war') {
         steps {
               bat 'mvn package'
