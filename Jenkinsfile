@@ -5,11 +5,6 @@ pipeline {
          jdk 'java 8'
  }
  stages  {
-      stage ('Welcome message') {
-         steps {
-               bat 'echo "Hi, let s start !"'
-            }
-       }
      stage ('Clear Project') {
         steps {
              bat 'mvn clean'
@@ -30,5 +25,12 @@ pipeline {
               bat 'mvn package'
           }
       }
+
+	  stage ('Deploying on tomcat') {
+        steps {
+            deploy adapters: [tomcat9(credentialsId: 'admin_tomcat', path: '', url: 'http://localhost:8014/')], contextPath: null, war: 'api-file.war'
+          }
+      }
+
   }
 }
