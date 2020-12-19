@@ -27,7 +27,7 @@ pipeline {
           steps {
               withSonarQubeEnv('sonarqube') {
                   /*sh "${scannerHome}/bin/sonar-scanner"*/
-                  bat 'D:/Tools/sonarqube-7.6/bin/windows-x86-64/StartSonar
+                  bat 'D:/Tools/sonarqube-7.6/bin/windows-x86-64/StartSonar'
               }
               timeout(time: 10, unit: 'MINUTES') {
                   waitForQualityGate abortPipeline: true
