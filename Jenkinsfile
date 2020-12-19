@@ -28,7 +28,7 @@ pipeline {
 
 	  stage ('Deploying on tomcat') {
         steps {
-            deploy adapters: [tomcat7(credentialsId: 'admin/admin', path: '', url: 'http://localhost:8014')], contextPath: null, war: 'target/api-file.war'
+            deploy adapters: [tomcat7(credentialsId: 'admin_tomcat', path: '', url: 'http://localhost:8014')], contextPath: null, war: 'target/api-file.war'
           }
       }
 
