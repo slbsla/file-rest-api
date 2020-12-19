@@ -7,7 +7,7 @@ pipeline {
  stages  {
       stage ('Welcome message') {
          steps {
-               sh ' echo "Hi, let s start !""
+               bat 'echo "Hi, let s start !"'
               }
        }
      stage ('Clear Project') {
