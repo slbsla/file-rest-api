@@ -8,26 +8,26 @@ pipeline {
       stage ('Welcome message') {
          steps {
                bat 'echo "Hi, let s start !"'
-              }
+            }
        }
      stage ('Clear Project') {
         steps {
-              sh 'mvn clean'
-             }
+             bat 'mvn clean'
+           }
       }
      stage ('Compile Project') {
         steps {
-                  sh 'mvn compile'
+             bat 'mvn compile'
          }
       }
 	 stage ('Test') {
         steps {
-               sh 'mvn test'
-         }
+              bat 'mvn test'
+           }
       }
 	  stage ('Generating war') {
         steps {
-             sh 'mvn package'
+              bat 'mvn package'
           }
       }
   }
