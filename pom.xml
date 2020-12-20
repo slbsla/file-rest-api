@@ -153,7 +153,7 @@
                 <sonar.jdbc.username>user_samir</sonar.jdbc.username>
                 <sonar.jdbc.password>user_samir</sonar.jdbc.password>
                 <sonar.login>admin</sonar.login>
-                <sonar.password>admin</sonar.password>
+                <sonar.password>sonar</sonar.password>
                 <sonar.host.url>
                     http://localhost:9000
                 </sonar.host.url>
