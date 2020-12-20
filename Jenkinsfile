@@ -20,7 +20,7 @@ pipeline {
               bat 'mvn test'
            }
       }
-      stage ('Sonar/Qualité') {
+      stage ('Sonar/Qualite') {
            steps {
                     bat 'mvn sonar:sonar'
            }
