@@ -2,7 +2,7 @@ pipeline {
  agent any
  tools {
          maven 'Maven3'
-         jdk 'java 8'
+         jdk 'Java 11'
  }
  stages  {
      stage ('Clear Project') {
