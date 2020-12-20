@@ -12,7 +12,7 @@ pipeline {
       }
      stage ('Compile Project') {
         steps {
-             bat 'mvn compile'
+             bat 'mvn compile -Dmaven.test.skip=true'
          }
       }
 	 stage ('Test') {
@@ -20,6 +20,12 @@ pipeline {
               bat 'mvn test'
            }
       }
+      stage ('Sonar/Qualité') {
+           steps {
+                    bat 'mvn sonar:sonar'
+           }
+      }
+
       /*stage('Sonarqube') {
           environment {
               scannerHome = tool 'SonarQubeScanner'

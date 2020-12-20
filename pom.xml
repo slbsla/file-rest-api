@@ -15,7 +15,7 @@
     <name>file-api</name>
     <description>Hazelcast</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.11</java.version>
     </properties>
     <dependencies>
         <!--		spring starter-->
@@ -109,6 +109,18 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>api-file</finalName>
@@ -117,6 +129,36 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.jdbc.url>
+                    jdbc:postgresql://localhost:5432/DB_SONAR?useUnicode=true
+                </sonar.jdbc.url>
+                <sonar.jdbc.username>user_samir</sonar.jdbc.username>
+                <sonar.jdbc.password>user_samir</sonar.jdbc.password>
+                <sonar.login>admin</sonar.login>
+                <sonar.password>admin</sonar.password>
+                <sonar.host.url>
+                    http://localhost:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
