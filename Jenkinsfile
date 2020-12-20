@@ -47,7 +47,7 @@ pipeline {
 
 	  stage ('Nexus') {
         steps {
-              nexusArtifactUploader artifacts: [[artifactId: 'api.file', classifier: '', file: 'target/api.file.war', type: 'war']], credentialsId: 'tomca-9', groupId: 'myfileapp', nexusUrl: 'localhost:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'maven_-snapshots', version: '1.0.0-SNAPSHOT'
+              nexusArtifactUploader artifacts: [[artifactId: 'api.file', classifier: '', file: 'target/api-file.war', type: 'war']], credentialsId: 'tomca-9', groupId: 'myfileapp', nexusUrl: 'localhost:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'maven_-snapshots', version: '1.0.0-SNAPSHOT'
           }
       }
 
