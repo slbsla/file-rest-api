@@ -45,6 +45,12 @@ pipeline {
           }
       }
 
+	  stage ('Nexus') {
+        steps {
+              nexusArtifactUploader artifacts: [[artifactId: 'api.file', classifier: '', file: 'target/api.file.war', type: 'war']], credentialsId: 'tomca-9', groupId: 'myfileapp', nexusUrl: 'localhost:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'maven_-snapshots', version: '1.0.0-SNAPSHOT'
+          }
+      }
+
 	  stage ('Deploying on tomcat') {
         steps {
             deploy adapters: [tomcat7(credentialsId: 'admin_tomcat', path: '', url: 'http://localhost:8014')], contextPath: null, war: 'target/api-file.war'
