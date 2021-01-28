@@ -1,4 +1,6 @@
 **
+jenkisn :  http://localhost:8099/login?from=%2F
+
 
 sonar 
 1/configure jenkins pipeline : https://medium.com/@rosaniline/setup-sonarqube-with-jenkins-declarative-pipeline-75bccdc9075f
